@@ -1,11 +1,13 @@
 package io.github.novanity99.wallpaperselector.service
 
+import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.BatteryManager
 import android.os.Build
 import android.os.PowerManager
@@ -26,6 +28,7 @@ class LiveWallpaperService : WallpaperService() {
         private lateinit var renderer: RenderThread
         private var currentId: String? = null
         private var lowBattery = false
+        private var colors: WallpaperColors? = null
         private var width = 0
         private var height = 0
 
@@ -79,9 +82,19 @@ class LiveWallpaperService : WallpaperService() {
             }
             if (id != currentId) {
                 currentId = id
-                renderer.setWallpaper(app.repository.loadLocal(id) ?: app.repository.loadLocal(DEFAULT_WALLPAPER))
+                val def = app.repository.loadLocal(id) ?: app.repository.loadLocal(DEFAULT_WALLPAPER)
+                renderer.setWallpaper(def)
+                if (Build.VERSION.SDK_INT >= 27) {
+                    colors = def?.colors?.let { c ->
+                        WallpaperColors(Color.valueOf(c[3], c[4], c[5]), Color.valueOf(c[6], c[7], c[8]), Color.valueOf(c[0], c[1], c[2]))
+                    }
+                    notifyColorsChanged()
+                }
             }
         }
+
+        // Lets Android match its theme colours (Material You) to the wallpaper's palette.
+        override fun onComputeColors(): WallpaperColors? = colors
 
         override fun onSharedPreferenceChanged(prefs: SharedPreferences?, key: String?) = apply()
 
