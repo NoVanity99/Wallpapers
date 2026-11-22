@@ -1,0 +1,12 @@
+.gradle/
+build/
+local.properties
+*.iml
+.idea/
+.kotlin/
+captures/
+.DS_Store
+# Private signing keys (the shared sideload key in keystore/ is committed on purpose, see README)
+*.keystore
+keystore.properties
+node_modules/

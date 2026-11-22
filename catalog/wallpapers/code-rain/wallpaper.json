@@ -1,0 +1,22 @@
+{
+  "id": "code-rain",
+  "name": "Code Rain",
+  "category": "Neon/Cyber",
+  "description": "Columns of made-up glyphs falling in the dark.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#020806",
+    "#19e68c",
+    "#eafff3",
+    "#7dffd0"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "density": 34
+  }
+}

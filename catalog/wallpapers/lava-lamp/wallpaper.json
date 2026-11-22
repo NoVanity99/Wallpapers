@@ -1,0 +1,20 @@
+{
+  "id": "lava-lamp",
+  "name": "Lava Lamp",
+  "category": "Abstract",
+  "description": "Soft blobs that merge and split. Touch to add one.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#1a0633",
+    "#3d0b4f",
+    "#ff5e3a",
+    "#ffb347"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {}
+}

@@ -1,0 +1,20 @@
+{
+  "id": "rotating-crystals",
+  "name": "Rotating Crystals",
+  "category": "Abstract",
+  "description": "Three faceted gems turning in the dark. Drag to tilt.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#070b1a",
+    "#1b2a5e",
+    "#4cc9f0",
+    "#f1c0ff"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {}
+}

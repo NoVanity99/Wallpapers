@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "wallpapers": [
+    {
+      "id": "lava-lamp",
+      "name": "Lava Lamp",
+      "category": "Abstract",
+      "description": "Soft blobs that merge and split. Touch to add one.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/lava-lamp",
+      "thumbnail": "thumbnail.webp",
+      "size": 7404,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 995
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 6014
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 395
+        }
+      ]
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora Waves",
+      "category": "Nature",
+      "description": "Curtains of light over a dark ridge.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/aurora",
+      "thumbnail": "thumbnail.webp",
+      "size": 9024,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1151
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 7494
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 379
+        }
+      ]
+    },
+    {
+      "id": "neon-grid",
+      "name": "Neon Grid Horizon",
+      "category": "Retro",
+      "description": "Striped sun over an endless glowing grid.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/neon-grid",
+      "thumbnail": "thumbnail.webp",
+      "size": 13693,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1367
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 11936
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 390
+        }
+      ]
+    }
+  ]
+}

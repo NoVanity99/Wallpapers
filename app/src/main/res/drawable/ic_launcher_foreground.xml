@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <!-- a phone-shaped frame with three waves of colour inside -->
+    <path android:pathData="M40,26h28a6,6 0,0 1,6 6v44a6,6 0,0 1,-6 6h-28a6,6 0,0 1,-6 -6v-44a6,6 0,0 1,6 -6z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear" android:startX="34" android:startY="26" android:endX="74" android:endY="82">
+                <item android:offset="0" android:color="#FF7A5CFF" />
+                <item android:offset="1" android:color="#FF2BFF9A" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:fillColor="#66FFFFFF" android:pathData="M34,52c7,-6 13,-6 20,0s13,6 20,0v10c-7,6 -13,6 -20,0s-13,-6 -20,0z" />
+    <path android:fillColor="#99FFFFFF" android:pathData="M34,64c7,-6 13,-6 20,0s13,6 20,0v12a6,6 0,0 1,-6 6h-28a6,6 0,0 1,-6 -6z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M62,34l1.8,4.2l4.2,1.8l-4.2,1.8l-1.8,4.2l-1.8,-4.2l-4.2,-1.8l4.2,-1.8z" />
+</vector>

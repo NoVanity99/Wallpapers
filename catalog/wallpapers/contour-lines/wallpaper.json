@@ -1,0 +1,22 @@
+{
+  "id": "contour-lines",
+  "name": "Contour Lines",
+  "category": "Minimal",
+  "description": "A slowly shifting map of thin elevation lines.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0f1720",
+    "#16222e",
+    "#3d5a73",
+    "#7fd6c2"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "lines": 14
+  }
+}

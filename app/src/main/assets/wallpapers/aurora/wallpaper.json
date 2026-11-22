@@ -1,0 +1,20 @@
+{
+  "id": "aurora",
+  "name": "Aurora Waves",
+  "category": "Nature",
+  "description": "Curtains of light over a dark ridge.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#07122b",
+    "#2bff9a",
+    "#7a5cff",
+    "#ff5fd2"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {}
+}

@@ -1,0 +1,20 @@
+{
+  "id": "lightning-storm",
+  "name": "Lightning Storm",
+  "category": "Nature",
+  "description": "Rolling clouds and random strikes. Tap to call a bolt.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0a0c18",
+    "#232842",
+    "#cfd8ff",
+    "#8ea2ff"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {}
+}

@@ -1,0 +1,20 @@
+{
+  "id": "flowing-ink",
+  "name": "Flowing Ink",
+  "category": "Abstract",
+  "description": "Ink curling through water.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0a0f1e",
+    "#1b3a6b",
+    "#19a7a8",
+    "#e8f1f2"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.5,
+  "parameters": {}
+}
