@@ -25,7 +25,8 @@ data class SettingsState(
 class Settings(context: Context) {
     val prefs: SharedPreferences = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
-    private fun read() = SettingsState(
+    /** Reads the saved values. Always current, also right after a write. */
+    fun read() = SettingsState(
         speed = prefs.getFloat("speed", 1f),
         fps = prefs.getInt("fps", 60),
         batterySaver = prefs.getBoolean("batterySaver", true),
@@ -39,25 +40,23 @@ class Settings(context: Context) {
     private val _state = MutableStateFlow(read())
     val state: StateFlow<SettingsState> = _state
 
-    // Held in a field: SharedPreferences only keeps weak references to listeners.
-    private val listener = SharedPreferences.OnSharedPreferenceChangeListener { _, _ -> _state.value = read() }
-
-    init {
-        prefs.registerOnSharedPreferenceChangeListener(listener)
+    // Every write goes through here, so the UI state can simply be refreshed afterwards
+    // (apply() updates the in-memory values immediately and saves to disk in the background).
+    private inline fun edit(block: SharedPreferences.Editor.() -> Unit) {
+        prefs.edit().apply(block).apply()
+        _state.value = read()
     }
 
-    fun setSpeed(v: Float) = prefs.edit().putFloat("speed", v).apply()
-    fun setFps(v: Int) = prefs.edit().putInt("fps", v).apply()
-    fun setBatterySaver(v: Boolean) = prefs.edit().putBoolean("batterySaver", v).apply()
-    fun setTheme(v: Int) = prefs.edit().putInt("theme", v).apply()
-    fun setLivePreviews(v: Boolean) = prefs.edit().putBoolean("livePreviews", v).apply()
+    fun setSpeed(v: Float) = edit { putFloat("speed", v) }
+    fun setFps(v: Int) = edit { putInt("fps", v) }
+    fun setBatterySaver(v: Boolean) = edit { putBoolean("batterySaver", v) }
+    fun setTheme(v: Int) = edit { putInt("theme", v) }
+    fun setLivePreviews(v: Boolean) = edit { putBoolean("livePreviews", v) }
 
     /** Remembers which wallpaper the service should play on the home and/or lock screen. */
-    fun selectWallpaper(id: String, home: Boolean, lock: Boolean) {
-        prefs.edit().apply {
-            putString("previewId", id)
-            if (home) putString("homeId", id)
-            if (lock) putString("lockId", id)
-        }.apply()
+    fun selectWallpaper(id: String, home: Boolean, lock: Boolean) = edit {
+        putString("previewId", id)
+        if (home) putString("homeId", id)
+        if (lock) putString("lockId", id)
     }
 }

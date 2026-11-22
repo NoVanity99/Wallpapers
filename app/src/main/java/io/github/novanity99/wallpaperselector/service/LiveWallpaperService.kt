@@ -66,7 +66,7 @@ class LiveWallpaperService : WallpaperService() {
 
         /** Pushes the current settings and wallpaper choice to the render thread. */
         private fun apply() {
-            val s = app.settings.state.value
+            val s = app.settings.read()
             renderer.fps = s.fps
             renderer.speed = s.speed
             val powerSave = (getSystemService(Context.POWER_SERVICE) as PowerManager).isPowerSaveMode
