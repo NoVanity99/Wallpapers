@@ -37,6 +37,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -122,7 +124,10 @@ fun WallpaperCard(
         Box(Modifier.fillMaxSize()) {
             Thumbnail(item.entry, Modifier.fillMaxSize())
             if (live) {
-                rememberPreviewDef(item)?.let {
+                val customs by LocalContext.current.app.settings.customs.collectAsStateWithLifecycle()
+                val custom = customs[item.entry.id]
+                val base = rememberPreviewDef(item)
+                remember(base, custom) { base?.customized(custom) }?.let {
                     // Small and capped at 30 fps: a screen full of previews stays cheap.
                     LivePreview(it, Modifier.fillMaxSize(), fps = 30, speed = settings.speed, scale = 0.6f)
                 }

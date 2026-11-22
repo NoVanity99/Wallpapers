@@ -1,0 +1,35 @@
+{
+  "id": "circuit-board",
+  "name": "Circuit Board",
+  "category": "Neon/Cyber",
+  "description": "Signals pulsing along glowing traces.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#03120e",
+    "#0f6b4f",
+    "#2bff9a",
+    "#eafff3"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "scale": 9,
+    "glow": 1
+  },
+  "controls": {
+    "scale": {
+      "label": "Density",
+      "min": 4,
+      "max": 20
+    },
+    "glow": {
+      "label": "Pulse brightness",
+      "min": 0,
+      "max": 2.5
+    }
+  }
+}

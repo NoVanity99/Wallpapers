@@ -14,11 +14,11 @@ import java.util.concurrent.TimeUnit
  * Frames are driven by vsync (Choreographer) and only while the surface is visible, so a
  * hidden wallpaper costs nothing. The public methods can be called from any thread.
  */
-class RenderThread(name: String, header: String) {
+class RenderThread(name: String, header: String, footer: String) {
     private val thread = HandlerThread(name).also { it.start() }
     private val handler = Handler(thread.looper)
     private val egl = EglCore()
-    private val renderer = ShaderRenderer(header)
+    private val renderer = ShaderRenderer(header, footer)
 
     val touch = TouchState()
     @Volatile var fps = 60

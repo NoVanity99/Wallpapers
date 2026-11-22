@@ -1,0 +1,20 @@
+{
+  "id": "particle-galaxy",
+  "name": "Particle Galaxy",
+  "category": "Space",
+  "description": "A tilted spiral of stars and dust.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": false,
+  "colors": [
+    "#03030a",
+    "#6aa9ff",
+    "#ffd9a0",
+    "#ff5fa2"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {}
+}

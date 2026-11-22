@@ -1,0 +1,35 @@
+{
+  "id": "dot-wave",
+  "name": "Dot Wave",
+  "category": "Minimal",
+  "description": "A calm grid of dots swelling as waves pass.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#101418",
+    "#3d5a80",
+    "#98c1d9",
+    "#293241"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "density": 16,
+    "wave": 1
+  },
+  "controls": {
+    "density": {
+      "label": "Dots",
+      "min": 6,
+      "max": 40
+    },
+    "wave": {
+      "label": "Wave size",
+      "min": 0.2,
+      "max": 3
+    }
+  }
+}

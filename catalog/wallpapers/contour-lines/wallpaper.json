@@ -3,7 +3,7 @@
   "name": "Contour Lines",
   "category": "Minimal",
   "description": "A slowly shifting map of thin elevation lines.",
-  "version": 1,
+  "version": 2,
   "format": 1,
   "shader": "shader.frag",
   "thumbnail": "thumbnail.webp",
@@ -18,5 +18,12 @@
   "renderScale": 1.0,
   "parameters": {
     "lines": 14
+  },
+  "controls": {
+    "lines": {
+      "label": "Line count",
+      "min": 4,
+      "max": 40
+    }
   }
 }

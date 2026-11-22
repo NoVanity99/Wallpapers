@@ -74,3 +74,6 @@ float stars(vec2 p) {
 // Tiny noise that hides colour banding in smooth gradients
 vec3 dither(vec3 c) { return c + (hash21(gl_FragCoord.xy) - .5) / 255.; }
 
+// The wallpaper's own main() runs first; the app's footer then applies the user's
+// brightness / contrast / saturation / vignette settings (see shader_footer.glsl).
+#define main wallpaperMain

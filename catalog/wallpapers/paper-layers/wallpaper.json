@@ -1,0 +1,35 @@
+{
+  "id": "paper-layers",
+  "name": "Paper Layers",
+  "category": "Minimal",
+  "description": "Cut-paper hills stacked with soft shadows.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#fefae0",
+    "#e9c46a",
+    "#e76f51",
+    "#264653"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "layers": 6,
+    "wave": 1
+  },
+  "controls": {
+    "layers": {
+      "label": "Layers",
+      "min": 2,
+      "max": 8
+    },
+    "wave": {
+      "label": "Waviness",
+      "min": 0,
+      "max": 2.5
+    }
+  }
+}

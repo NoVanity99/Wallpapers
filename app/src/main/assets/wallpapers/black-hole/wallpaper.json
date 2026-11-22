@@ -1,0 +1,35 @@
+{
+  "id": "black-hole",
+  "name": "Black Hole",
+  "category": "Space",
+  "description": "A disc of glowing gas bending the stars behind it.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": false,
+  "colors": [
+    "#020208",
+    "#ff7b00",
+    "#ffd9a0",
+    "#fff1d6"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {
+    "size": 1,
+    "glow": 1
+  },
+  "controls": {
+    "size": {
+      "label": "Size",
+      "min": 0.5,
+      "max": 2
+    },
+    "glow": {
+      "label": "Ring glow",
+      "min": 0,
+      "max": 3
+    }
+  }
+}

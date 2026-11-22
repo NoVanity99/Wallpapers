@@ -1,0 +1,20 @@
+{
+  "id": "liquid-gradient",
+  "name": "Liquid Gradient",
+  "category": "Abstract",
+  "description": "Four colours slowly folding into each other.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#ff6b6b",
+    "#5f27cd",
+    "#48dbfb",
+    "#feca57"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {}
+}

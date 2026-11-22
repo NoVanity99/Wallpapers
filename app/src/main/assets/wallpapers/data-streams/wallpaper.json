@@ -1,0 +1,35 @@
+{
+  "id": "data-streams",
+  "name": "Data Streams",
+  "category": "Neon/Cyber",
+  "description": "Packets of light racing along parallel lanes.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#020510",
+    "#00b4d8",
+    "#7b2ff7",
+    "#ffffff"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "lanes": 22,
+    "rush": 1
+  },
+  "controls": {
+    "lanes": {
+      "label": "Lanes",
+      "min": 6,
+      "max": 50
+    },
+    "rush": {
+      "label": "Rush",
+      "min": 0.2,
+      "max": 3
+    }
+  }
+}

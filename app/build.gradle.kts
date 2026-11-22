@@ -8,6 +8,10 @@ plugins {
 val catalogBaseUrl = providers.gradleProperty("catalogBaseUrl")
     .getOrElse("https://raw.githubusercontent.com/NoVanity99/Wallpapers/HEAD/catalog/")
 
+// Where the in-app updater looks for the newest build.
+val updateApiUrl = providers.gradleProperty("updateApiUrl")
+    .getOrElse("https://api.github.com/repos/NoVanity99/Wallpapers/releases/latest")
+
 // CI passes the run number so every build can be installed over the previous one.
 val ciVersionCode = (System.getenv("VERSION_CODE") ?: "1").toInt()
 val ciVersionName = System.getenv("VERSION_NAME") ?: "1.0.0"
@@ -25,6 +29,7 @@ android {
         versionCode = ciVersionCode
         versionName = ciVersionName
         buildConfigField("String", "CATALOG_BASE_URL", "\"$catalogBaseUrl\"")
+        buildConfigField("String", "UPDATE_API_URL", "\"$updateApiUrl\"")
     }
 
     signingConfigs {

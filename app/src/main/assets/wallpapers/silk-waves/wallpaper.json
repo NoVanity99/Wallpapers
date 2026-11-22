@@ -1,0 +1,35 @@
+{
+  "id": "silk-waves",
+  "name": "Silk Waves",
+  "category": "Abstract",
+  "description": "Glowing ribbons sliding over each other.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0b0a1f",
+    "#ff5fa2",
+    "#7b5cff",
+    "#4cc9f0"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {
+    "amplitude": 1,
+    "thickness": 1
+  },
+  "controls": {
+    "amplitude": {
+      "label": "Wave height",
+      "min": 0,
+      "max": 2.5
+    },
+    "thickness": {
+      "label": "Ribbon width",
+      "min": 0.3,
+      "max": 3
+    }
+  }
+}

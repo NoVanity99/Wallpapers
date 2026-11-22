@@ -16,8 +16,8 @@ import io.github.novanity99.wallpaperselector.gl.RenderThread
 
 /** A view that plays a wallpaper with the same renderer the live wallpaper service uses. */
 @SuppressLint("ViewConstructor")
-class LiveWallpaperView(context: Context, header: String) : TextureView(context), TextureView.SurfaceTextureListener {
-    private val renderer = RenderThread("preview-gl", header)
+class LiveWallpaperView(context: Context, header: String, footer: String) : TextureView(context), TextureView.SurfaceTextureListener {
+    private val renderer = RenderThread("preview-gl", header, footer)
     private var def: WallpaperDef? = null
     var interactive = false
 
@@ -73,9 +73,9 @@ fun LivePreview(
     speed: Float = 1f,
     scale: Float = 1f,
 ) {
-    val header = (LocalContext.current.applicationContext as App).repository.shaderHeader
+    val repo = (LocalContext.current.applicationContext as App).repository
     AndroidView(
-        factory = { LiveWallpaperView(it, header) },
+        factory = { LiveWallpaperView(it, repo.shaderHeader, repo.shaderFooter) },
         modifier = modifier,
         update = {
             it.interactive = interactive

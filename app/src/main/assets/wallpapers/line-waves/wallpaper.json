@@ -1,0 +1,35 @@
+{
+  "id": "line-waves",
+  "name": "Line Waves",
+  "category": "Minimal",
+  "description": "Thin lines with a gentle swell travelling through.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0e0e12",
+    "#17171f",
+    "#8d99ae",
+    "#edf2f4"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "lines": 16,
+    "amplitude": 1
+  },
+  "controls": {
+    "lines": {
+      "label": "Lines",
+      "min": 4,
+      "max": 24
+    },
+    "amplitude": {
+      "label": "Wave height",
+      "min": 0,
+      "max": 3
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "meteor-shower",
+  "name": "Meteor Shower",
+  "category": "Space",
+  "description": "Shooting stars over quiet hills. Tap to send one.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#050816",
+    "#1a2456",
+    "#ffffff",
+    "#9ad1ff"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "rate": 1
+  },
+  "controls": {
+    "rate": {
+      "label": "How often",
+      "min": 0.2,
+      "max": 3
+    }
+  }
+}

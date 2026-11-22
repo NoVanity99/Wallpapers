@@ -1,0 +1,35 @@
+{
+  "id": "breathing-rings",
+  "name": "Breathing Rings",
+  "category": "Minimal",
+  "description": "Circles widening and thinning like slow breath.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#fbf7f0",
+    "#f1e3d3",
+    "#d4a373",
+    "#6b705c"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "rings": 7,
+    "thickness": 1
+  },
+  "controls": {
+    "rings": {
+      "label": "Rings",
+      "min": 2,
+      "max": 20
+    },
+    "thickness": {
+      "label": "Thickness",
+      "min": 0.3,
+      "max": 2.2
+    }
+  }
+}

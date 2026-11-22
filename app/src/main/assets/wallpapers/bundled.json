@@ -2,6 +2,58 @@
   "format": 1,
   "wallpapers": [
     {
+      "id": "flowing-ink",
+      "name": "Flowing Ink",
+      "category": "Abstract",
+      "description": "Ink curling through water.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/flowing-ink",
+      "thumbnail": "thumbnail.webp",
+      "size": 8200,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 688
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 7138
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 374
+        }
+      ]
+    },
+    {
+      "id": "kaleidoscope",
+      "name": "Kaleidoscope",
+      "category": "Abstract",
+      "description": "A mirrored pattern that never repeats.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/kaleidoscope",
+      "thumbnail": "thumbnail.webp",
+      "size": 10251,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 703
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 8942
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 606
+        }
+      ]
+    },
+    {
       "id": "lava-lamp",
       "name": "Lava Lamp",
       "category": "Abstract",
@@ -24,6 +76,344 @@
         {
           "name": "wallpaper.json",
           "size": 395
+        }
+      ]
+    },
+    {
+      "id": "liquid-gradient",
+      "name": "Liquid Gradient",
+      "category": "Abstract",
+      "description": "Four colours slowly folding into each other.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/liquid-gradient",
+      "thumbnail": "thumbnail.webp",
+      "size": 4871,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 624
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 3846
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 401
+        }
+      ]
+    },
+    {
+      "id": "plasma",
+      "name": "Plasma Drift",
+      "category": "Abstract",
+      "description": "Classic sine plasma that bends around your finger.",
+      "interactive": true,
+      "version": 2,
+      "format": 1,
+      "path": "wallpapers/plasma",
+      "thumbnail": "thumbnail.webp",
+      "size": 6529,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 651
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 5366
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 512
+        }
+      ]
+    },
+    {
+      "id": "rotating-crystals",
+      "name": "Rotating Crystals",
+      "category": "Abstract",
+      "description": "Three faceted gems turning in the dark. Drag to tilt.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/rotating-crystals",
+      "thumbnail": "thumbnail.webp",
+      "size": 11237,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1639
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 9184
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 414
+        }
+      ]
+    },
+    {
+      "id": "silk-waves",
+      "name": "Silk Waves",
+      "category": "Abstract",
+      "description": "Glowing ribbons sliding over each other.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/silk-waves",
+      "thumbnail": "thumbnail.webp",
+      "size": 7278,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 920
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 5730
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 628
+        }
+      ]
+    },
+    {
+      "id": "voronoi-glass",
+      "name": "Stained Glass",
+      "category": "Abstract",
+      "description": "Shifting cells of colour with dark leading between them.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/voronoi-glass",
+      "thumbnail": "thumbnail.webp",
+      "size": 9514,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 982
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 7896
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 636
+        }
+      ]
+    },
+    {
+      "id": "black-hole",
+      "name": "Black Hole",
+      "category": "Space",
+      "description": "A disc of glowing gas bending the stars behind it.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/black-hole",
+      "thumbnail": "thumbnail.webp",
+      "size": 14851,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1037
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 13210
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 604
+        }
+      ]
+    },
+    {
+      "id": "nebula",
+      "name": "Drifting Nebula",
+      "category": "Space",
+      "description": "Layered gas clouds over a twinkling star field.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/nebula",
+      "thumbnail": "thumbnail.webp",
+      "size": 16948,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 732
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 15824
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 392
+        }
+      ]
+    },
+    {
+      "id": "meteor-shower",
+      "name": "Meteor Shower",
+      "category": "Space",
+      "description": "Shooting stars over quiet hills. Tap to send one.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/meteor-shower",
+      "thumbnail": "thumbnail.webp",
+      "size": 11615,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1524
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 9574
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 517
+        }
+      ]
+    },
+    {
+      "id": "particle-galaxy",
+      "name": "Particle Galaxy",
+      "category": "Space",
+      "description": "A tilted spiral of stars and dust.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/particle-galaxy",
+      "thumbnail": "thumbnail.webp",
+      "size": 12123,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 946
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 10788
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 389
+        }
+      ]
+    },
+    {
+      "id": "planet-horizon",
+      "name": "Planet Horizon",
+      "category": "Space",
+      "description": "Sunrise creeping around the edge of a world.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/planet-horizon",
+      "thumbnail": "thumbnail.webp",
+      "size": 9054,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1115
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 7314
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 625
+        }
+      ]
+    },
+    {
+      "id": "ringed-planet",
+      "name": "Ringed Planet",
+      "category": "Space",
+      "description": "A banded gas giant and its rings. Drag to tilt.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/ringed-planet",
+      "thumbnail": "thumbnail.webp",
+      "size": 13072,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1266
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 11188
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 618
+        }
+      ]
+    },
+    {
+      "id": "starfield-warp",
+      "name": "Starfield Warp",
+      "category": "Space",
+      "description": "Fly through streaking stars. Touch to steer.",
+      "interactive": true,
+      "version": 2,
+      "format": 1,
+      "path": "wallpapers/starfield-warp",
+      "thumbnail": "thumbnail.webp",
+      "size": 13929,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1132
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 12274
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 523
+        }
+      ]
+    },
+    {
+      "id": "wormhole",
+      "name": "Wormhole",
+      "category": "Space",
+      "description": "A spiral throat of light pulling you in.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/wormhole",
+      "thumbnail": "thumbnail.webp",
+      "size": 6343,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 764
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 4994
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 585
         }
       ]
     },
@@ -54,6 +444,734 @@
       ]
     },
     {
+      "id": "bubbles",
+      "name": "Bubbles",
+      "category": "Nature",
+      "description": "Glassy bubbles rising through deep water.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/bubbles",
+      "thumbnail": "thumbnail.webp",
+      "size": 20756,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1218
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 19158
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 380
+        }
+      ]
+    },
+    {
+      "id": "campfire-embers",
+      "name": "Campfire Embers",
+      "category": "Nature",
+      "description": "Sparks drifting up from a fire just out of view.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/campfire-embers",
+      "thumbnail": "thumbnail.webp",
+      "size": 11512,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1135
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 9752
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 625
+        }
+      ]
+    },
+    {
+      "id": "cherry-blossom",
+      "name": "Cherry Blossom",
+      "category": "Nature",
+      "description": "Petals tumbling on a spring breeze.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/cherry-blossom",
+      "thumbnail": "thumbnail.webp",
+      "size": 8008,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1104
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 6306
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 598
+        }
+      ]
+    },
+    {
+      "id": "falling-snow",
+      "name": "Falling Snow",
+      "category": "Nature",
+      "description": "Soft flakes at six depths. Your finger pushes them aside.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/falling-snow",
+      "thumbnail": "thumbnail.webp",
+      "size": 18841,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1037
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 17398
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 406
+        }
+      ]
+    },
+    {
+      "id": "fireflies",
+      "name": "Fireflies",
+      "category": "Nature",
+      "description": "Glowing dots over a night meadow. Hold to gather them.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/fireflies",
+      "thumbnail": "thumbnail.webp",
+      "size": 6637,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1310
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 4930
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 397
+        }
+      ]
+    },
+    {
+      "id": "lightning-storm",
+      "name": "Lightning Storm",
+      "category": "Nature",
+      "description": "Rolling clouds and random strikes. Tap to call a bolt.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/lightning-storm",
+      "thumbnail": "thumbnail.webp",
+      "size": 7336,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1791
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 5136
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 409
+        }
+      ]
+    },
+    {
+      "id": "misty-mountains",
+      "name": "Misty Mountains",
+      "category": "Nature",
+      "description": "Ridges fading into drifting fog.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/misty-mountains",
+      "thumbnail": "thumbnail.webp",
+      "size": 4571,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1088
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 2984
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 499
+        }
+      ]
+    },
+    {
+      "id": "ocean-waves",
+      "name": "Ocean Waves",
+      "category": "Nature",
+      "description": "Moonlit swell rolling in layers.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/ocean-waves",
+      "thumbnail": "thumbnail.webp",
+      "size": 11680,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1246
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 10056
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 378
+        }
+      ]
+    },
+    {
+      "id": "rain-glass",
+      "name": "Rain on Glass",
+      "category": "Nature",
+      "description": "Drops on a fogged window. Wipe the fog with your finger.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/rain-glass",
+      "thumbnail": "thumbnail.webp",
+      "size": 11658,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 2462
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 8792
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 404
+        }
+      ]
+    },
+    {
+      "id": "circuit-board",
+      "name": "Circuit Board",
+      "category": "Neon/Cyber",
+      "description": "Signals pulsing along glowing traces.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/circuit-board",
+      "thumbnail": "thumbnail.webp",
+      "size": 13303,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1348
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 11342
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 613
+        }
+      ]
+    },
+    {
+      "id": "code-rain",
+      "name": "Code Rain",
+      "category": "Neon/Cyber",
+      "description": "Columns of made-up glyphs falling in the dark.",
+      "interactive": true,
+      "version": 2,
+      "format": 1,
+      "path": "wallpapers/code-rain",
+      "thumbnail": "thumbnail.webp",
+      "size": 21204,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1470
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 19218
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 516
+        }
+      ]
+    },
+    {
+      "id": "data-streams",
+      "name": "Data Streams",
+      "category": "Neon/Cyber",
+      "description": "Packets of light racing along parallel lanes.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/data-streams",
+      "thumbnail": "thumbnail.webp",
+      "size": 5597,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 937
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 4054
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 606
+        }
+      ]
+    },
+    {
+      "id": "equalizer",
+      "name": "Equalizer",
+      "category": "Neon/Cyber",
+      "description": "Bars dancing to music only they can hear.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/equalizer",
+      "thumbnail": "thumbnail.webp",
+      "size": 14491,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1026
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 12864
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 601
+        }
+      ]
+    },
+    {
+      "id": "glitch-scan",
+      "name": "Glitch",
+      "category": "Neon/Cyber",
+      "description": "A clean signal that keeps tearing and snapping back.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/glitch-scan",
+      "thumbnail": "thumbnail.webp",
+      "size": 35278,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1146
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 33604
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 528
+        }
+      ]
+    },
+    {
+      "id": "neon-skyline",
+      "name": "Neon Skyline",
+      "category": "Neon/Cyber",
+      "description": "Towers with windows blinking through the night.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/neon-skyline",
+      "thumbnail": "thumbnail.webp",
+      "size": 18497,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1291
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 16572
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 634
+        }
+      ]
+    },
+    {
+      "id": "neon-tunnel",
+      "name": "Neon Tunnel",
+      "category": "Neon/Cyber",
+      "description": "Glowing hexagonal rings rushing past.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/neon-tunnel",
+      "thumbnail": "thumbnail.webp",
+      "size": 14831,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 898
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 13546
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 387
+        }
+      ]
+    },
+    {
+      "id": "hex-pulse",
+      "name": "Pulsing Hex Grid",
+      "category": "Neon/Cyber",
+      "description": "Waves of light across a honeycomb. Taps send ripples.",
+      "interactive": true,
+      "version": 2,
+      "format": 1,
+      "path": "wallpapers/hex-pulse",
+      "thumbnail": "thumbnail.webp",
+      "size": 19525,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1148
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 17850
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 527
+        }
+      ]
+    },
+    {
+      "id": "breathing-rings",
+      "name": "Breathing Rings",
+      "category": "Minimal",
+      "description": "Circles widening and thinning like slow breath.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/breathing-rings",
+      "thumbnail": "thumbnail.webp",
+      "size": 9281,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 856
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 7798
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 627
+        }
+      ]
+    },
+    {
+      "id": "contour-lines",
+      "name": "Contour Lines",
+      "category": "Minimal",
+      "description": "A slowly shifting map of thin elevation lines.",
+      "interactive": true,
+      "version": 2,
+      "format": 1,
+      "path": "wallpapers/contour-lines",
+      "thumbnail": "thumbnail.webp",
+      "size": 19600,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 999
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 18082
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 519
+        }
+      ]
+    },
+    {
+      "id": "dot-wave",
+      "name": "Dot Wave",
+      "category": "Minimal",
+      "description": "A calm grid of dots swelling as waves pass.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/dot-wave",
+      "thumbnail": "thumbnail.webp",
+      "size": 17157,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 882
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 15674
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 601
+        }
+      ]
+    },
+    {
+      "id": "floating-shapes",
+      "name": "Floating Shapes",
+      "category": "Minimal",
+      "description": "Flat shapes drifting upward. They shy away from your finger.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/floating-shapes",
+      "thumbnail": "thumbnail.webp",
+      "size": 8050,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1707
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 5928
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 415
+        }
+      ]
+    },
+    {
+      "id": "line-waves",
+      "name": "Line Waves",
+      "category": "Minimal",
+      "description": "Thin lines with a gentle swell travelling through.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/line-waves",
+      "thumbnail": "thumbnail.webp",
+      "size": 19560,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 847
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 18094
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 619
+        }
+      ]
+    },
+    {
+      "id": "paper-layers",
+      "name": "Paper Layers",
+      "category": "Minimal",
+      "description": "Cut-paper hills stacked with soft shadows.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/paper-layers",
+      "thumbnail": "thumbnail.webp",
+      "size": 12111,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 980
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 10526
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 605
+        }
+      ]
+    },
+    {
+      "id": "slow-sunset",
+      "name": "Slow Sunset",
+      "category": "Minimal",
+      "description": "The sun drifts down and back up over quiet hills.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/slow-sunset",
+      "thumbnail": "thumbnail.webp",
+      "size": 5785,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1080
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 4308
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 397
+        }
+      ]
+    },
+    {
+      "id": "soft-orbs",
+      "name": "Soft Orbs",
+      "category": "Minimal",
+      "description": "A few big blurred circles drifting past each other.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/soft-orbs",
+      "thumbnail": "thumbnail.webp",
+      "size": 4400,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 912
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 2880
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 608
+        }
+      ]
+    },
+    {
+      "id": "checker-corridor",
+      "name": "Checker Corridor",
+      "category": "Retro",
+      "description": "A checkerboard floor and ceiling rushing to the horizon.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/checker-corridor",
+      "thumbnail": "thumbnail.webp",
+      "size": 22166,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 594
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 21040
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 532
+        }
+      ]
+    },
+    {
+      "id": "groovy-tiles",
+      "name": "Groovy Tiles",
+      "category": "Retro",
+      "description": "70s-style interlocking arcs gliding by.",
+      "interactive": true,
+      "version": 2,
+      "format": 1,
+      "path": "wallpapers/groovy-tiles",
+      "thumbnail": "thumbnail.webp",
+      "size": 30817,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 880
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 29430
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 507
+        }
+      ]
+    },
+    {
+      "id": "late-signal",
+      "name": "Late Night Signal",
+      "category": "Retro",
+      "description": "Colour bars from a worn-out tape.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/late-signal",
+      "thumbnail": "thumbnail.webp",
+      "size": 82924,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1012
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 81316
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 596
+        }
+      ]
+    },
+    {
       "id": "neon-grid",
       "name": "Neon Grid Horizon",
       "category": "Retro",
@@ -76,6 +1194,110 @@
         {
           "name": "wallpaper.json",
           "size": 390
+        }
+      ]
+    },
+    {
+      "id": "pixel-fire",
+      "name": "Pixel Fire",
+      "category": "Retro",
+      "description": "A chunky old-school flame. Hold to feed it.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/pixel-fire",
+      "thumbnail": "thumbnail.webp",
+      "size": 3527,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 748
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 2162
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 617
+        }
+      ]
+    },
+    {
+      "id": "raster-bars",
+      "name": "Raster Bars",
+      "category": "Retro",
+      "description": "Shaded bars weaving over a scrolling star field.",
+      "interactive": false,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/raster-bars",
+      "thumbnail": "thumbnail.webp",
+      "size": 6087,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 961
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 4522
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 604
+        }
+      ]
+    },
+    {
+      "id": "retro-stripes",
+      "name": "Retro Stripes",
+      "category": "Retro",
+      "description": "Two bands of 70s racing stripes snaking by.",
+      "interactive": true,
+      "version": 1,
+      "format": 1,
+      "path": "wallpapers/retro-stripes",
+      "thumbnail": "thumbnail.webp",
+      "size": 44572,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 863
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 43092
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 617
+        }
+      ]
+    },
+    {
+      "id": "sunburst",
+      "name": "Retro Sunburst",
+      "category": "Retro",
+      "description": "Poster-style rays turning around a rising sun.",
+      "interactive": true,
+      "version": 2,
+      "format": 1,
+      "path": "wallpapers/sunburst",
+      "thumbnail": "thumbnail.webp",
+      "size": 34848,
+      "files": [
+        {
+          "name": "shader.frag",
+          "size": 1029
+        },
+        {
+          "name": "thumbnail.webp",
+          "size": 33314
+        },
+        {
+          "name": "wallpaper.json",
+          "size": 505
         }
       ]
     }

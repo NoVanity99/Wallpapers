@@ -1,0 +1,35 @@
+{
+  "id": "ringed-planet",
+  "name": "Ringed Planet",
+  "category": "Space",
+  "description": "A banded gas giant and its rings. Drag to tilt.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#04040c",
+    "#b5651d",
+    "#f2d0a4",
+    "#8d99ae"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "tilt": 0.6,
+    "ringSize": 1
+  },
+  "controls": {
+    "tilt": {
+      "label": "Tilt",
+      "min": -2,
+      "max": 2
+    },
+    "ringSize": {
+      "label": "Ring size",
+      "min": 0.7,
+      "max": 1.4
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "floating-shapes",
+  "name": "Floating Shapes",
+  "category": "Minimal",
+  "description": "Flat shapes drifting upward. They shy away from your finger.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#f4efe6",
+    "#e76f51",
+    "#2a9d8f",
+    "#e9c46a"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {}
+}

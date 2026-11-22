@@ -1,0 +1,35 @@
+{
+  "id": "voronoi-glass",
+  "name": "Stained Glass",
+  "category": "Abstract",
+  "description": "Shifting cells of colour with dark leading between them.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#1b1035",
+    "#e63946",
+    "#f4a261",
+    "#2a9d8f"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "scale": 5,
+    "edge": 0.12
+  },
+  "controls": {
+    "scale": {
+      "label": "Cell count",
+      "min": 2,
+      "max": 12
+    },
+    "edge": {
+      "label": "Edge softness",
+      "min": 0.02,
+      "max": 0.5
+    }
+  }
+}

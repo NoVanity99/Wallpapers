@@ -3,12 +3,14 @@
 An Android app for browsing, downloading, previewing and setting animated (live) wallpapers.
 Every wallpaper is a small OpenGL ES shader, so it stays a few kilobytes, loops forever and is sharp at any resolution.
 
-- 24 original wallpapers in six categories (Abstract, Space, Nature, Neon/Cyber, Minimal, Retro); 21 of them react to touch
+- 50 original wallpapers in six categories (Abstract, Space, Nature, Neon/Cyber, Minimal, Retro), at least eight in each; most react to touch
+- Every wallpaper can be customized: touch on/off, colours, speed, its own sliders, brightness, contrast, saturation, sharpness
 - Live previews, search, category filters, offline downloads, a "My Wallpapers" tab
+- Built-in updater that installs the newest build from this repository's GitHub Releases
 - Home screen, lock screen or both (separate lock screen wallpapers need Android 14+)
 - Speed, 30/60 fps cap, battery saver, light/dark theme
 - New wallpapers come from the catalog in this repository, with no app update needed
-- No ads, no tracking, one permission (internet)
+- No ads, no tracking. Permissions: internet, plus "install apps" for the built-in updater
 
 Kotlin, Jetpack Compose, Material 3. Android 8.0 (API 26) and newer.
 
@@ -19,9 +21,9 @@ Kotlin, Jetpack Compose, Material 3. Android 8.0 (API 26) and newer.
 3. Open the downloaded file. The first time, Android asks you to allow your browser to "install unknown apps": allow it, go back, and tap **Install**.
 4. Open **Wallpaper Selector**.
 
-To update later, download the newest APK the same way and install it over the old one. Your downloads and settings are kept.
+To update later, open **Settings → Check** in the app (it also checks by itself on start). When a newer build exists, tap **Update**; the app downloads it and Android asks you to confirm the install. Your downloads and settings are kept. Installing a newer APK by hand works too.
 
-> While this repository is **private**, you have to be signed in to GitHub in your phone's browser to download the APK, and the app cannot read the online catalog (it shows only the three built-in wallpapers). See [Hosting](#hosting-the-catalog).
+> **This repository has to be public for the online parts to work.** While it is private, GitHub answers the app with "404 not found", so the app shows a "catalog wasn't found" notice and the updater can't see releases. All 50 wallpapers are built into the APK, so the app is fully usable anyway; what you lose is new wallpapers arriving without an update, and in-app updates. To fix it: repository **Settings → General → Danger Zone → Change repository visibility → Public**. See [Hosting](#hosting-the-catalog).
 
 ## Using the app
 
@@ -29,8 +31,9 @@ To update later, download the newest APK the same way and install it over the ol
 |---|---|
 | **Browse** | All wallpapers grouped by category. Pull down to refresh the catalog. |
 | **A wallpaper** | Full-screen live preview. Touch the preview to play with it; the eye button hides the panel. **Download** saves it for offline use, **Set as Wallpaper** asks Home / Lock / Both and then opens Android's own preview, where you tap **Set wallpaper**. |
+| **Customize** | On a wallpaper's screen. Turn touch reactions off, change its four colours, speed, the sliders specific to that wallpaper (zoom, density, amount…), brightness, contrast, saturation, dark corners and sharpness. Changes are saved per wallpaper and apply live, including to the wallpaper already on your home screen. **Reset** puts it back as designed. |
 | **My Wallpapers** | Everything stored on the phone (built-in and downloaded), with delete. |
-| **Settings** | Animation speed, frame rate limit, battery saver, live previews in lists, theme. |
+| **Settings** | App updates, animation speed, frame rate limit, battery saver, live previews in lists, theme. |
 
 The wallpaper only draws while it is actually visible. It stops when the screen is off or an app covers it. With battery saver on (the default) it also freezes at 15% battery or when Android's Battery Saver is active.
 
@@ -63,7 +66,8 @@ catalog/wallpapers/my-wallpaper/
      "colors": ["#0b1354", "#7b2ff7", "#f72585", "#ffb703"],
      "speed": 1.0,
      "renderScale": 1.0,
-     "parameters": { "scale": 1.6 }
+     "parameters": { "scale": 1.6 },
+     "controls": { "scale": { "label": "Zoom", "min": 0.5, "max": 4 } }
    }
    ```
 
@@ -76,9 +80,10 @@ catalog/wallpapers/my-wallpaper/
    | `colors` | Up to four colours, available in the shader as `u_color1` … `u_color4`. |
    | `speed` | Time multiplier for this wallpaper (the user's speed setting is applied on top). |
    | `renderScale` | 0.25–1. Heavy shaders can render at a lower resolution and be scaled up; 0.5–0.75 is usually invisible on soft, blurry designs and saves a lot of battery. |
-   | `parameters` | Any numbers you like. `"scale": 1.6` becomes `uniform float u_scale;` in the shader. |
+   | `parameters` | Any numbers you like. `"scale": 1.6` becomes `uniform float u_scale;` in the shader. Each one gets a slider on the Customize screen. |
+   | `controls` | Optional. The slider's label and range for a parameter. Without it the slider is named after the parameter and runs from a quarter to 2.5 times the value. |
 
-3. **Write `shader.frag`.** The app adds a header in front of your file (see `app/src/main/assets/shader_header.glsl`), so you only write `main()` and whatever helpers you need. The header gives you:
+3. **Write `shader.frag`.** The app adds a header in front of your file (see `app/src/main/assets/shader_header.glsl`), so you only write `main()` and whatever helpers you need. After your `main()` the app applies the user's brightness, contrast, saturation and vignette settings (`shader_footer.glsl`); you don't have to do anything for those, or for the touch on/off switch, colours and speed. The header gives you:
 
    | Name | What it is |
    |---|---|
@@ -123,7 +128,7 @@ catalog/wallpapers/my-wallpaper/
 
 The app picks up the new entry the next time it starts or you pull to refresh (GitHub's raw file cache can take about five minutes). No new APK is needed.
 
-To change which three wallpapers ship inside the APK, edit `BUNDLED` in `tools/build_catalog.py`. That one does need a new build.
+By default every wallpaper in the catalog is also packed into the APK at build time, so a fresh install has everything offline; wallpapers you add later show up as downloads until the next build. To ship a smaller APK, set `BUNDLED` in `tools/build_catalog.py` to a short list of ids.
 
 ### Try a wallpaper before publishing it
 
@@ -144,7 +149,7 @@ The app reads `catalog.json` and the wallpaper files from
 https://raw.githubusercontent.com/NoVanity99/Wallpapers/HEAD/catalog/
 ```
 
-(`HEAD` means the repository's default branch.) Raw URLs only work without a login when the repository is **public**: *Settings → General → Danger Zone → Change repository visibility*. Until then the app works with its three built-in wallpapers and shows a "can't reach the catalog" notice.
+(`HEAD` means the repository's default branch.) Raw URLs only work without a login when the repository is **public**: *Settings → General → Danger Zone → Change repository visibility*. Until then the app works with its built-in wallpapers and shows a "catalog wasn't found" notice. The updater reads `https://api.github.com/repos/NoVanity99/Wallpapers/releases/latest`, which has the same requirement.
 
 To host the catalog somewhere else (GitHub Pages, another repository, your own server), upload the `catalog/` folder there and build with `-PcatalogBaseUrl=https://example.com/catalog/`, or change the default in `app/build.gradle.kts`.
 
@@ -180,13 +185,14 @@ Switching keys means uninstalling the app once before installing the first build
 
 ```
 app/src/main/java/.../wallpaperselector/
-  data/      catalog models, downloads and storage, settings
+  data/      catalog models, downloads and storage, settings, per-wallpaper customisation, updater
   gl/        EGL setup, the shader renderer, the vsync-driven render thread, touch tracking
   service/   LiveWallpaperService (the live wallpaper itself)
   ui/        Compose screens, theme, the live preview view
 app/src/main/assets/
   shader_header.glsl    uniforms and helpers shared by every wallpaper
-  wallpapers/           the three bundled wallpapers (copied here by tools/build_catalog.py)
+  shader_footer.glsl    applies the user's brightness/contrast/saturation/vignette
+  wallpapers/           the bundled wallpapers (copied here by tools/build_catalog.py)
 catalog/
   catalog.json          generated list of all wallpapers
   wallpapers/<id>/      one folder per wallpaper
@@ -198,7 +204,9 @@ tools/
 ## Troubleshooting
 
 - **"App not installed" when updating:** the installed copy was signed with a different key. Uninstall it, then install the new APK.
-- **Only three wallpapers show up:** the phone can't reach the catalog. Check the connection and that the repository is public (see [Hosting](#hosting-the-catalog)).
+- **"The online catalog wasn't found":** the repository is private (or the catalog was moved). Make it public (see [Hosting](#hosting-the-catalog)).
+- **"No public release found" when checking for updates:** same cause.
+- **The updater says "App not installed":** see the first point; also allow Wallpaper Selector to install apps when Android asks.
 - **A new wallpaper is missing:** run `python3 tools/build_catalog.py`, commit `catalog/catalog.json`, push, wait a few minutes, pull to refresh.
 - **A wallpaper shows a plain dark gradient:** its shader failed to compile on the phone. `node tools/render_thumbnails.js <id>` prints the error.
 - **Stutter on an older phone:** set the frame rate limit to 30 fps, or lower that wallpaper's `renderScale`.

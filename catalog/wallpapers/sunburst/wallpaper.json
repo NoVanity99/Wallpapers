@@ -3,7 +3,7 @@
   "name": "Retro Sunburst",
   "category": "Retro",
   "description": "Poster-style rays turning around a rising sun.",
-  "version": 1,
+  "version": 2,
   "format": 1,
   "shader": "shader.frag",
   "thumbnail": "thumbnail.webp",
@@ -18,5 +18,12 @@
   "renderScale": 1.0,
   "parameters": {
     "rays": 12
+  },
+  "controls": {
+    "rays": {
+      "label": "Rays",
+      "min": 4,
+      "max": 30
+    }
   }
 }

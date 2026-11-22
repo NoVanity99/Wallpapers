@@ -13,6 +13,7 @@ const { chromium } = require('playwright');
 const root = path.join(__dirname, '..');
 const wallDir = path.join(root, 'catalog', 'wallpapers');
 const header = fs.readFileSync(path.join(root, 'app/src/main/assets/shader_header.glsl'), 'utf8');
+const footer = fs.readFileSync(path.join(root, 'app/src/main/assets/shader_footer.glsl'), 'utf8');
 const args = process.argv.slice(2);
 const opt = (name) => { const i = args.indexOf(name); return i >= 0 ? args.splice(i, 2)[1] : null; };
 const flag = (name) => { const i = args.indexOf(name); if (i >= 0) args.splice(i, 1); return i >= 0; };
@@ -29,7 +30,7 @@ const W = 360, H = 640;
   for (const id of ids) {
     const dir = path.join(wallDir, id);
     const def = JSON.parse(fs.readFileSync(path.join(dir, 'wallpaper.json'), 'utf8'));
-    const frag = header + '\n#line 1\n' + fs.readFileSync(path.join(dir, def.shader || 'shader.frag'), 'utf8');
+    const frag = header + '\n#line 1\n' + fs.readFileSync(path.join(dir, def.shader || 'shader.frag'), 'utf8') + footer;
     const time = Number(timeArg ?? def.thumbnailTime ?? 8) * (def.speed ?? 1);
     const res = await page.evaluate(({ frag, def, time, touch }) => {
       const c = document.getElementById('c');
@@ -51,6 +52,7 @@ const W = 360, H = 640;
         gl.uniform2f(u('u_resolution'), c.width, c.height);
         gl.uniform1f(u('u_time'), time);
         gl.uniform1f(u('u_offset'), .5);
+        gl.uniform4f(u('u_adjust'), 1, 1, 1, 0);
         gl.uniform3f(u('u_touch'), .5, .55, touch ? 1 : 0);
         gl.uniform4fv(u('u_taps[0]'), touch ? [.4, .35, .45, 1, .7, .7, 1.1, 1, 0, 0, 99, 0, 0, 0, 99, 0] : [0, 0, 99, 0, 0, 0, 99, 0, 0, 0, 99, 0, 0, 0, 99, 0]);
         const cols = def.colors && def.colors.length ? def.colors : ['#000000', '#ffffff'];

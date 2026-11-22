@@ -9,6 +9,7 @@ const val THEME_SYSTEM = 0
 const val THEME_LIGHT = 1
 const val THEME_DARK = 2
 const val DEFAULT_WALLPAPER = "aurora"
+const val CUSTOM_PREFIX = "custom_"
 
 data class SettingsState(
     val speed: Float,
@@ -19,6 +20,7 @@ data class SettingsState(
     val homeId: String,
     val lockId: String,
     val previewId: String,
+    val autoUpdateCheck: Boolean,
 )
 
 /** App settings. Shared with the wallpaper service, which lives in the same process. */
@@ -35,7 +37,27 @@ class Settings(context: Context) {
         homeId = prefs.getString("homeId", DEFAULT_WALLPAPER)!!,
         lockId = prefs.getString("lockId", DEFAULT_WALLPAPER)!!,
         previewId = prefs.getString("previewId", DEFAULT_WALLPAPER)!!,
+        autoUpdateCheck = prefs.getBoolean("autoUpdateCheck", true),
     )
+
+    private fun readCustoms(): Map<String, Custom> = prefs.all
+        .filter { it.key.startsWith(CUSTOM_PREFIX) && it.value is String }
+        .map { it.key.removePrefix(CUSTOM_PREFIX) to Custom.fromJson(it.value as String) }.toMap()
+
+    /** Per-wallpaper customisations, keyed by wallpaper id. */
+    private val _customs = MutableStateFlow(readCustoms())
+    val customs: StateFlow<Map<String, Custom>> = _customs
+
+    fun custom(id: String): Custom? = prefs.getString(CUSTOM_PREFIX + id, null)?.let(Custom::fromJson)
+
+    /** Saves the customisation for one wallpaper; null (or all defaults) puts it back as designed. */
+    fun setCustom(id: String, custom: Custom?) {
+        val c = custom?.takeIf { it != Custom() }
+        prefs.edit().apply { if (c == null) remove(CUSTOM_PREFIX + id) else putString(CUSTOM_PREFIX + id, c.toJson()) }.apply()
+        _customs.value = if (c == null) _customs.value - id else _customs.value + (id to c)
+    }
+
+    fun setAutoUpdateCheck(v: Boolean) = edit { putBoolean("autoUpdateCheck", v) }
 
     private val _state = MutableStateFlow(read())
     val state: StateFlow<SettingsState> = _state

@@ -46,7 +46,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         val app = application as App
-        if (savedInstanceState == null) app.repository.refresh()
+        if (savedInstanceState == null) {
+            app.repository.refresh()
+            if (app.settings.read().autoUpdateCheck) app.updater.check()
+        }
         setContent {
             val settings by app.settings.state.collectAsStateWithLifecycle()
             AppTheme(settings.theme) { AppRoot(app) }

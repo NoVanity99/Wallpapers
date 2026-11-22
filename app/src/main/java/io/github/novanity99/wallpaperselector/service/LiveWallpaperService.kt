@@ -15,6 +15,7 @@ import android.service.wallpaper.WallpaperService
 import android.view.MotionEvent
 import android.view.SurfaceHolder
 import io.github.novanity99.wallpaperselector.App
+import io.github.novanity99.wallpaperselector.data.CUSTOM_PREFIX
 import io.github.novanity99.wallpaperselector.data.DEFAULT_WALLPAPER
 import io.github.novanity99.wallpaperselector.gl.RenderThread
 
@@ -42,7 +43,7 @@ class LiveWallpaperService : WallpaperService() {
         override fun onCreate(surfaceHolder: SurfaceHolder) {
             super.onCreate(surfaceHolder)
             setTouchEventsEnabled(true)
-            renderer = RenderThread("wallpaper-gl", app.repository.shaderHeader)
+            renderer = RenderThread("wallpaper-gl", app.repository.shaderHeader, app.repository.shaderFooter)
             app.settings.prefs.registerOnSharedPreferenceChangeListener(this)
             val filter = IntentFilter(Intent.ACTION_BATTERY_CHANGED).apply {
                 addAction(PowerManager.ACTION_POWER_SAVE_MODE_CHANGED)
@@ -82,7 +83,8 @@ class LiveWallpaperService : WallpaperService() {
             }
             if (id != currentId) {
                 currentId = id
-                val def = app.repository.loadLocal(id) ?: app.repository.loadLocal(DEFAULT_WALLPAPER)
+                val def = (app.repository.loadLocal(id) ?: app.repository.loadLocal(DEFAULT_WALLPAPER))
+                    ?.let { it.customized(app.settings.custom(it.id)) }
                 renderer.setWallpaper(def)
                 if (Build.VERSION.SDK_INT >= 27) {
                     colors = def?.colors?.let { c ->
@@ -96,7 +98,11 @@ class LiveWallpaperService : WallpaperService() {
         // Lets Android match its theme colours (Material You) to the wallpaper's palette.
         override fun onComputeColors(): WallpaperColors? = colors
 
-        override fun onSharedPreferenceChanged(prefs: SharedPreferences?, key: String?) = apply()
+        override fun onSharedPreferenceChanged(prefs: SharedPreferences?, key: String?) {
+            // A customisation of the wallpaper on screen changed: load it again.
+            if (key == null || key.startsWith(CUSTOM_PREFIX)) currentId = null
+            apply()
+        }
 
         override fun onWallpaperFlagsChanged(which: Int) {
             super.onWallpaperFlagsChanged(which)

@@ -1,0 +1,35 @@
+{
+  "id": "soft-orbs",
+  "name": "Soft Orbs",
+  "category": "Minimal",
+  "description": "A few big blurred circles drifting past each other.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#f1ece4",
+    "#f4a261",
+    "#e76f51",
+    "#84a59d"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {
+    "size": 1,
+    "blur": 0.8
+  },
+  "controls": {
+    "size": {
+      "label": "Size",
+      "min": 0.4,
+      "max": 2
+    },
+    "blur": {
+      "label": "Softness",
+      "min": 0.05,
+      "max": 1
+    }
+  }
+}

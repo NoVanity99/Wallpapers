@@ -1,0 +1,35 @@
+{
+  "id": "wormhole",
+  "name": "Wormhole",
+  "category": "Space",
+  "description": "A spiral throat of light pulling you in.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#03010a",
+    "#7b2ff7",
+    "#00e5ff",
+    "#ffffff"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.85,
+  "parameters": {
+    "twist": 1,
+    "arms": 4
+  },
+  "controls": {
+    "twist": {
+      "label": "Twist",
+      "min": 0,
+      "max": 3
+    },
+    "arms": {
+      "label": "Arms",
+      "min": 1,
+      "max": 9
+    }
+  }
+}

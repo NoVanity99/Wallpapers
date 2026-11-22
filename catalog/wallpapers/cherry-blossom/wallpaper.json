@@ -1,0 +1,35 @@
+{
+  "id": "cherry-blossom",
+  "name": "Cherry Blossom",
+  "category": "Nature",
+  "description": "Petals tumbling on a spring breeze.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#bfe3f5",
+    "#fde2ec",
+    "#ffb7c5",
+    "#ffffff"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "amount": 1,
+    "wind": 1
+  },
+  "controls": {
+    "amount": {
+      "label": "Petals",
+      "min": 0.2,
+      "max": 2
+    },
+    "wind": {
+      "label": "Wind",
+      "min": -3,
+      "max": 3
+    }
+  }
+}

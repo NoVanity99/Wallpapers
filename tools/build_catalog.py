@@ -13,8 +13,10 @@ ROOT = Path(__file__).resolve().parent.parent
 WALLS = ROOT / "catalog" / "wallpapers"
 ASSETS = ROOT / "app" / "src" / "main" / "assets" / "wallpapers"
 
-# Shipped inside the APK so the app works on first launch without internet.
-BUNDLED = ["aurora", "neon-grid", "lava-lamp"]
+# Which wallpapers ship inside the APK. None = all of them, so the app is complete without
+# internet. To keep the APK minimal, list a few ids instead, e.g. ["aurora", "neon-grid", "lava-lamp"];
+# the rest then download from the online catalog.
+BUNDLED = None
 CATEGORIES = ["Abstract", "Space", "Nature", "Neon/Cyber", "Minimal", "Retro"]
 
 
@@ -58,12 +60,13 @@ def main() -> int:
 
     if ASSETS.exists():
         shutil.rmtree(ASSETS)
-    for wid in BUNDLED:
+    bundled = BUNDLED or [e["id"] for e in entries]
+    for wid in bundled:
         shutil.copytree(WALLS / wid, ASSETS / wid)
     (ASSETS / "bundled.json").write_text(
-        json.dumps({"format": 1, "wallpapers": [e for e in entries if e["id"] in BUNDLED]}, indent=2) + "\n")
+        json.dumps({"format": 1, "wallpapers": [e for e in entries if e["id"] in bundled]}, indent=2) + "\n")
 
-    print(f"catalog.json: {len(entries)} wallpapers, {sum(e['size'] for e in entries) // 1024} KB total; bundled: {', '.join(BUNDLED)}")
+    print(f"catalog.json: {len(entries)} wallpapers, {sum(e['size'] for e in entries) // 1024} KB total; bundled: {len(bundled)}")
     return 0
 
 

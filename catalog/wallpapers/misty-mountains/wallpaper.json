@@ -1,0 +1,29 @@
+{
+  "id": "misty-mountains",
+  "name": "Misty Mountains",
+  "category": "Nature",
+  "description": "Ridges fading into drifting fog.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": false,
+  "colors": [
+    "#3a506b",
+    "#c9d6df",
+    "#0b132b",
+    "#ffe8c2"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.85,
+  "parameters": {
+    "fog": 1
+  },
+  "controls": {
+    "fog": {
+      "label": "Fog",
+      "min": 0,
+      "max": 2.5
+    }
+  }
+}

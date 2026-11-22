@@ -1,0 +1,35 @@
+{
+  "id": "retro-stripes",
+  "name": "Retro Stripes",
+  "category": "Retro",
+  "description": "Two bands of 70s racing stripes snaking by.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#f3e9d2",
+    "#c8553d",
+    "#f28f3b",
+    "#588b8b"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "width": 1,
+    "curve": 1
+  },
+  "controls": {
+    "width": {
+      "label": "Stripe width",
+      "min": 0.4,
+      "max": 2.5
+    },
+    "curve": {
+      "label": "Curviness",
+      "min": 0,
+      "max": 2.5
+    }
+  }
+}

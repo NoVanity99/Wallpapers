@@ -1,0 +1,29 @@
+{
+  "id": "glitch-scan",
+  "name": "Glitch",
+  "category": "Neon/Cyber",
+  "description": "A clean signal that keeps tearing and snapping back.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0a0014",
+    "#ff2e97",
+    "#00e5ff",
+    "#f8f8ff"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "intensity": 1
+  },
+  "controls": {
+    "intensity": {
+      "label": "Glitch amount",
+      "min": 0,
+      "max": 3
+    }
+  }
+}

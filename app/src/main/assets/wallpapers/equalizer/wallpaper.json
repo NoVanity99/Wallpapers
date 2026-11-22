@@ -1,0 +1,35 @@
+{
+  "id": "equalizer",
+  "name": "Equalizer",
+  "category": "Neon/Cyber",
+  "description": "Bars dancing to music only they can hear.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#07030f",
+    "#7b2ff7",
+    "#ff2e97",
+    "#ffd23f"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "bars": 14,
+    "height": 1
+  },
+  "controls": {
+    "bars": {
+      "label": "Bars",
+      "min": 5,
+      "max": 32
+    },
+    "height": {
+      "label": "Height",
+      "min": 0.3,
+      "max": 1.8
+    }
+  }
+}

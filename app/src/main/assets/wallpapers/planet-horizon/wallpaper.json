@@ -1,0 +1,35 @@
+{
+  "id": "planet-horizon",
+  "name": "Planet Horizon",
+  "category": "Space",
+  "description": "Sunrise creeping around the edge of a world.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": false,
+  "colors": [
+    "#02030c",
+    "#1d4e89",
+    "#4cc9f0",
+    "#fff3c4"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.85,
+  "parameters": {
+    "atmosphere": 1,
+    "clouds": 1
+  },
+  "controls": {
+    "atmosphere": {
+      "label": "Atmosphere",
+      "min": 0,
+      "max": 2.5
+    },
+    "clouds": {
+      "label": "Clouds",
+      "min": 0,
+      "max": 3
+    }
+  }
+}

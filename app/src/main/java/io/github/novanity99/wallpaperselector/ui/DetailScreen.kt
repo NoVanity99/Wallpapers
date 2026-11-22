@@ -29,6 +29,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Download
+import androidx.compose.material.icons.rounded.Tune
 import androidx.compose.material.icons.rounded.Visibility
 import androidx.compose.material.icons.rounded.VisibilityOff
 import androidx.compose.material.icons.rounded.Wallpaper
@@ -62,6 +63,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.github.novanity99.wallpaperselector.data.Custom
 import io.github.novanity99.wallpaperselector.data.SettingsState
 import io.github.novanity99.wallpaperselector.data.WallpaperItem
 
@@ -70,6 +73,10 @@ fun DetailScreen(item: WallpaperItem, settings: SettingsState, onBack: () -> Uni
     val context = LocalContext.current
     val repo = context.app.repository
     val def = rememberPreviewDef(item)
+    val customs by context.app.settings.customs.collectAsStateWithLifecycle()
+    val custom = customs[item.entry.id] ?: Custom()
+    val shownDef = remember(def, custom) { def?.customized(custom) }
+    var customizing by rememberSaveable { mutableStateOf(false) }
     var showUi by rememberSaveable { mutableStateOf(true) }
     var askTarget by remember { mutableStateOf(false) }
     var askDelete by remember { mutableStateOf(false) }
@@ -85,8 +92,8 @@ fun DetailScreen(item: WallpaperItem, settings: SettingsState, onBack: () -> Uni
 
     Box(Modifier.fillMaxSize().background(Color.Black)) {
         Thumbnail(item.entry, Modifier.fillMaxSize())
-        if (def != null) {
-            LivePreview(def, Modifier.fillMaxSize(), interactive = true, fps = settings.fps, speed = settings.speed)
+        if (shownDef != null) {
+            LivePreview(shownDef, Modifier.fillMaxSize(), interactive = true, fps = settings.fps, speed = settings.speed)
         }
 
         val overlayButton = IconButtonDefaults.iconButtonColors(containerColor = Color.Black.copy(alpha = 0.45f), contentColor = Color.White)
@@ -111,7 +118,13 @@ fun DetailScreen(item: WallpaperItem, settings: SettingsState, onBack: () -> Uni
                 shape = RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp),
                 modifier = Modifier.widthIn(max = 560.dp).fillMaxWidth(),
             ) {
-                Column(Modifier.windowInsetsPadding(WindowInsets.navigationBars).padding(20.dp)) {
+                if (customizing && def != null) {
+                    CustomizePanel(
+                        base = def, interactive = item.entry.interactive, custom = custom,
+                        onChange = { context.app.settings.setCustom(item.entry.id, it) },
+                        onDone = { customizing = false },
+                    )
+                } else Column(Modifier.windowInsetsPadding(WindowInsets.navigationBars).padding(20.dp)) {
                     Text(item.entry.name, style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
                     Text(
                         buildString {
@@ -164,6 +177,12 @@ fun DetailScreen(item: WallpaperItem, settings: SettingsState, onBack: () -> Uni
                             }
                             if (item.downloaded) {
                                 IconButton(onClick = { askDelete = true }) { Icon(Icons.Rounded.Delete, "Delete download") }
+                            }
+                        }
+                        if (def != null) {
+                            OutlinedButton(onClick = { customizing = true }, modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
+                                Icon(Icons.Rounded.Tune, null, Modifier.size(18.dp))
+                                Text(if (custom != Custom()) "  Customize (changed)" else "  Customize")
                             }
                         }
                         if (!item.available) {

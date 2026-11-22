@@ -1,0 +1,35 @@
+{
+  "id": "pixel-fire",
+  "name": "Pixel Fire",
+  "category": "Retro",
+  "description": "A chunky old-school flame. Hold to feed it.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0d0208",
+    "#9d0208",
+    "#f48c06",
+    "#ffea00"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "pixels": 40,
+    "height": 1
+  },
+  "controls": {
+    "pixels": {
+      "label": "Pixel count",
+      "min": 12,
+      "max": 120
+    },
+    "height": {
+      "label": "Flame height",
+      "min": 0.4,
+      "max": 2
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "raster-bars",
+  "name": "Raster Bars",
+  "category": "Retro",
+  "description": "Shaded bars weaving over a scrolling star field.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": false,
+  "colors": [
+    "#05020f",
+    "#ff006e",
+    "#8338ec",
+    "#3a86ff"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "bars": 6,
+    "size": 1
+  },
+  "controls": {
+    "bars": {
+      "label": "Bars",
+      "min": 1,
+      "max": 8
+    },
+    "size": {
+      "label": "Bar size",
+      "min": 0.4,
+      "max": 2.5
+    }
+  }
+}

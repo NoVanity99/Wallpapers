@@ -1,0 +1,29 @@
+{
+  "id": "checker-corridor",
+  "name": "Checker Corridor",
+  "category": "Retro",
+  "description": "A checkerboard floor and ceiling rushing to the horizon.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#14002b",
+    "#ff71ce",
+    "#01cdfe",
+    "#fffb96"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "tiles": 8
+  },
+  "controls": {
+    "tiles": {
+      "label": "Tile count",
+      "min": 3,
+      "max": 20
+    }
+  }
+}

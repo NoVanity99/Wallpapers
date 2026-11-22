@@ -120,6 +120,7 @@ fun BrowseScreen(
                 FilterChip(selected = category == c, onClick = { category = if (category == c) null else c }, label = { Text(c) })
             }
         }
+        UpdateCard(Modifier.padding(horizontal = 16.dp, vertical = 4.dp), compact = true)
         if (status == CatalogStatus.Offline) {
             Surface(
                 color = MaterialTheme.colorScheme.secondaryContainer, shape = RoundedCornerShape(12.dp),
@@ -128,7 +129,7 @@ fun BrowseScreen(
                 Row(Modifier.padding(start = 12.dp), verticalAlignment = Alignment.CenterVertically) {
                     Icon(Icons.Rounded.CloudOff, null)
                     Text(
-                        "Can't reach the catalog. Showing what's on this phone.",
+                        LocalContext.current.app.repository.offlineReason + " Showing the wallpapers on this phone.",
                         style = MaterialTheme.typography.bodySmall, modifier = Modifier.weight(1f).padding(horizontal = 10.dp),
                     )
                     TextButton(onClick = onRefresh) { Text("Retry") }
@@ -253,6 +254,12 @@ fun SettingsScreen(settings: SettingsState) {
                 "Live previews in lists",
                 "Turn off to show still thumbnails in the grid instead.",
                 trailing = { Switch(checked = settings.livePreviews, onCheckedChange = store::setLivePreviews) },
+            )
+            UpdateCard(Modifier.padding(horizontal = 16.dp, vertical = 8.dp))
+            SettingBlock(
+                "Check for updates automatically",
+                "Looks for a newer build on GitHub each time the app starts.",
+                trailing = { Switch(checked = settings.autoUpdateCheck, onCheckedChange = store::setAutoUpdateCheck) },
             )
             SettingBlock("Theme") {
                 Choice(listOf(THEME_SYSTEM to "System", THEME_LIGHT to "Light", THEME_DARK to "Dark"), settings.theme, store::setTheme)

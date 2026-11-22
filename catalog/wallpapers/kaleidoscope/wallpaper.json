@@ -1,0 +1,35 @@
+{
+  "id": "kaleidoscope",
+  "name": "Kaleidoscope",
+  "category": "Abstract",
+  "description": "A mirrored pattern that never repeats.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#240046",
+    "#ff6d00",
+    "#ff0a54",
+    "#3a86ff"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "segments": 8,
+    "zoom": 1.5
+  },
+  "controls": {
+    "segments": {
+      "label": "Mirrors",
+      "min": 3,
+      "max": 16
+    },
+    "zoom": {
+      "label": "Zoom",
+      "min": 0.5,
+      "max": 4
+    }
+  }
+}

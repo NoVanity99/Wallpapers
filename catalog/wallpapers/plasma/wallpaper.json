@@ -3,7 +3,7 @@
   "name": "Plasma Drift",
   "category": "Abstract",
   "description": "Classic sine plasma that bends around your finger.",
-  "version": 1,
+  "version": 2,
   "format": 1,
   "shader": "shader.frag",
   "thumbnail": "thumbnail.webp",
@@ -18,5 +18,12 @@
   "renderScale": 1.0,
   "parameters": {
     "scale": 1.6
+  },
+  "controls": {
+    "scale": {
+      "label": "Zoom",
+      "min": 0.5,
+      "max": 4
+    }
   }
 }

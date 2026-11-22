@@ -1,0 +1,35 @@
+{
+  "id": "late-signal",
+  "name": "Late Night Signal",
+  "category": "Retro",
+  "description": "Colour bars from a worn-out tape.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#c0c0c0",
+    "#e9c46a",
+    "#2a9d8f",
+    "#e63946"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "noise": 1,
+    "wobble": 1
+  },
+  "controls": {
+    "noise": {
+      "label": "Static",
+      "min": 0,
+      "max": 3
+    },
+    "wobble": {
+      "label": "Wobble",
+      "min": 0,
+      "max": 3
+    }
+  }
+}

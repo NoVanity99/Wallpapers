@@ -1,0 +1,20 @@
+{
+  "id": "falling-snow",
+  "name": "Falling Snow",
+  "category": "Nature",
+  "description": "Soft flakes at six depths. Your finger pushes them aside.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#0e1a33",
+    "#2b3f66",
+    "#ffffff",
+    "#dfe9f5"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.85,
+  "parameters": {}
+}

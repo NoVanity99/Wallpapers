@@ -1,0 +1,29 @@
+{
+  "id": "hex-pulse",
+  "name": "Pulsing Hex Grid",
+  "category": "Neon/Cyber",
+  "description": "Waves of light across a honeycomb. Taps send ripples.",
+  "version": 2,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#05060f",
+    "#00e5ff",
+    "#7b2ff7",
+    "#ff2e97"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "scale": 9
+  },
+  "controls": {
+    "scale": {
+      "label": "Cell count",
+      "min": 4,
+      "max": 20
+    }
+  }
+}

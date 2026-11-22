@@ -1,0 +1,29 @@
+{
+  "id": "sunburst",
+  "name": "Retro Sunburst",
+  "category": "Retro",
+  "description": "Poster-style rays turning around a rising sun.",
+  "version": 2,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#e4572e",
+    "#f3a738",
+    "#fff3d6",
+    "#a8201a"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "rays": 12
+  },
+  "controls": {
+    "rays": {
+      "label": "Rays",
+      "min": 4,
+      "max": 30
+    }
+  }
+}

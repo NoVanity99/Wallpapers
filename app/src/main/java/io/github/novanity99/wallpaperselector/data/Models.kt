@@ -71,6 +71,50 @@ data class CatalogEntry(
     }
 }
 
+/** A slider the user can move for one of a wallpaper's "parameters". */
+data class Control(val key: String, val label: String, val min: Float, val max: Float, val default: Float)
+
+/** What the user changed for one wallpaper. Defaults mean "as designed". */
+data class Custom(
+    val touch: Boolean = true,
+    val speed: Float = 1f,
+    val quality: Float = 1f,
+    val brightness: Float = 1f,
+    val contrast: Float = 1f,
+    val saturation: Float = 1f,
+    val vignette: Float = 0f,
+    /** Replacement colours as ARGB ints, by slot; null = keep the wallpaper's own. */
+    val colors: List<Int?> = listOf(null, null, null, null),
+    val params: Map<String, Float> = emptyMap(),
+) {
+    fun toJson(): String = JSONObject()
+        .put("touch", touch).put("speed", speed.toDouble()).put("quality", quality.toDouble())
+        .put("brightness", brightness.toDouble()).put("contrast", contrast.toDouble())
+        .put("saturation", saturation.toDouble()).put("vignette", vignette.toDouble())
+        .put("colors", JSONArray().also { a -> colors.forEach { a.put(it ?: JSONObject.NULL) } })
+        .put("params", JSONObject().also { o -> params.forEach { (k, v) -> o.put(k, v.toDouble()) } })
+        .toString()
+
+    companion object {
+        fun fromJson(text: String): Custom = runCatching {
+            val o = JSONObject(text)
+            val c = o.optJSONArray("colors")
+            val p = o.optJSONObject("params")
+            Custom(
+                touch = o.optBoolean("touch", true),
+                speed = o.optDouble("speed", 1.0).toFloat(),
+                quality = o.optDouble("quality", 1.0).toFloat(),
+                brightness = o.optDouble("brightness", 1.0).toFloat(),
+                contrast = o.optDouble("contrast", 1.0).toFloat(),
+                saturation = o.optDouble("saturation", 1.0).toFloat(),
+                vignette = o.optDouble("vignette", 0.0).toFloat(),
+                colors = (0 until 4).map { i -> if (c == null || c.isNull(i)) null else c.optInt(i) },
+                params = buildMap { p?.keys()?.forEach { k -> put(k, p.optDouble(k, 0.0).toFloat()) } },
+            )
+        }.getOrDefault(Custom())
+    }
+}
+
 /** Everything the renderer needs to draw one wallpaper (wallpaper.json + its shader source). */
 class WallpaperDef(
     val id: String,
@@ -81,7 +125,34 @@ class WallpaperDef(
     val renderScale: Float,
     val params: Map<String, Float>,
     val shader: String,
+    val controls: List<Control> = emptyList(),
+    val touch: Boolean = true,
+    /** brightness, contrast, saturation, vignette */
+    val adjust: FloatArray = floatArrayOf(1f, 1f, 1f, 0f),
 ) {
+    /** The same wallpaper with the user's changes applied. */
+    fun customized(c: Custom?): WallpaperDef {
+        if (c == null) return this
+        val newColors = colors.copyOf()
+        c.colors.forEachIndexed { i, argb ->
+            if (argb != null && i < 4) {
+                newColors[i * 3] = Color.red(argb) / 255f
+                newColors[i * 3 + 1] = Color.green(argb) / 255f
+                newColors[i * 3 + 2] = Color.blue(argb) / 255f
+            }
+        }
+        return WallpaperDef(
+            id, version, newColors, speed * c.speed, (renderScale * c.quality).coerceIn(0.2f, 1f),
+            params + c.params.filterKeys { it in params }, shader, controls, c.touch,
+            floatArrayOf(c.brightness, c.contrast, c.saturation, c.vignette),
+        )
+    }
+
+    /** Colour slot [i] (0..3) as an ARGB int. */
+    fun colorInt(i: Int): Int = Color.rgb(
+        (colors[i * 3] * 255).toInt(), (colors[i * 3 + 1] * 255).toInt(), (colors[i * 3 + 2] * 255).toInt(),
+    )
+
     companion object {
         fun parse(json: String, readFile: (String) -> String): WallpaperDef {
             val o = JSONObject(json)
@@ -108,6 +179,17 @@ class WallpaperDef(
                 renderScale = o.optDouble("renderScale", 1.0).toFloat().coerceIn(0.25f, 1f),
                 params = params,
                 shader = readFile(o.optString("shader", "shader.frag")),
+                // Sliders: taken from "controls" when given, otherwise a sensible range around the value.
+                controls = params.entries.sortedBy { it.key }.map { (key, value) ->
+                    val c = o.optJSONObject("controls")?.optJSONObject(key)
+                    Control(
+                        key = key,
+                        label = c?.optString("label")?.takeIf { it.isNotBlank() } ?: key.replaceFirstChar { it.uppercase() },
+                        min = c?.optDouble("min", Double.NaN)?.takeIf { !it.isNaN() }?.toFloat() ?: (value * 0.25f),
+                        max = c?.optDouble("max", Double.NaN)?.takeIf { !it.isNaN() }?.toFloat() ?: (value * 2.5f).coerceAtLeast(1f),
+                        default = value,
+                    )
+                },
             )
         }
     }

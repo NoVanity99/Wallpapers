@@ -1,0 +1,20 @@
+{
+  "id": "fireflies",
+  "name": "Fireflies",
+  "category": "Nature",
+  "description": "Glowing dots over a night meadow. Hold to gather them.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#06140f",
+    "#0c1f3a",
+    "#f4ff7a",
+    "#9aff5c"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.75,
+  "parameters": {}
+}

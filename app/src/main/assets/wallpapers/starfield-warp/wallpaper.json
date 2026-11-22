@@ -1,0 +1,29 @@
+{
+  "id": "starfield-warp",
+  "name": "Starfield Warp",
+  "category": "Space",
+  "description": "Fly through streaking stars. Touch to steer.",
+  "version": 2,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#02030a",
+    "#9ad1ff",
+    "#ffffff",
+    "#24306b"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.85,
+  "parameters": {
+    "streak": 1.0
+  },
+  "controls": {
+    "streak": {
+      "label": "Streak length",
+      "min": 0,
+      "max": 3
+    }
+  }
+}

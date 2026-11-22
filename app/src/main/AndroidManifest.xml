@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- The only permission: used to fetch the wallpaper catalog. -->
+    <!-- Fetching the wallpaper catalog and app updates. -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Lets the in-app updater hand a downloaded build to Android's installer (you still confirm each install). -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <!-- androidx.core adds a private helper permission we never use; drop it so INTERNET really is the only one. -->
     <permission android:name="${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" tools:node="remove" />
@@ -40,5 +42,14 @@
             </intent-filter>
             <meta-data android:name="android.service.wallpaper" android:resource="@xml/wallpaper" />
         </service>
+
+        <!-- Shares the downloaded update APK with the system installer, nothing else. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.files"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+        </provider>
     </application>
 </manifest>

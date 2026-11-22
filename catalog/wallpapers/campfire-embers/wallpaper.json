@@ -1,0 +1,35 @@
+{
+  "id": "campfire-embers",
+  "name": "Campfire Embers",
+  "category": "Nature",
+  "description": "Sparks drifting up from a fire just out of view.",
+  "version": 1,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#050308",
+    "#1c0a05",
+    "#c1121f",
+    "#ffb703"
+  ],
+  "speed": 1.0,
+  "renderScale": 0.85,
+  "parameters": {
+    "amount": 1,
+    "flame": 1
+  },
+  "controls": {
+    "amount": {
+      "label": "Sparks",
+      "min": 0,
+      "max": 2
+    },
+    "flame": {
+      "label": "Flame height",
+      "min": 0.4,
+      "max": 2.5
+    }
+  }
+}

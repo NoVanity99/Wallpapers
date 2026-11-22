@@ -46,6 +46,12 @@ class WallpaperRepository(private val context: Context) {
     private val thumbs = LruCache<String, Bitmap>(64)
 
     val shaderHeader: String by lazy { readAsset("shader_header.glsl") }
+    val shaderFooter: String by lazy { readAsset("shader_footer.glsl") }
+
+    /** Why the last catalog refresh failed, in words for the user. */
+    @Volatile
+    var offlineReason: String = ""
+        private set
 
     private val bundled: List<CatalogEntry> by lazy {
         runCatching { CatalogEntry.listFromJson(readAsset("wallpapers/bundled.json")) }.getOrDefault(emptyList())
@@ -71,6 +77,11 @@ class WallpaperRepository(private val context: Context) {
                 _status.value = CatalogStatus.Online
             } catch (e: Exception) {
                 Log.w(TAG, "Catalog refresh failed", e)
+                offlineReason = if (e.message?.startsWith("HTTP 404") == true) {
+                    "The online catalog wasn't found. If the GitHub repository is private, make it public so the app can read it."
+                } else {
+                    "Can't reach the online catalog. Check your connection."
+                }
                 _status.value = CatalogStatus.Offline
             }
             rebuild()

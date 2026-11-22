@@ -14,11 +14,15 @@ import kotlin.math.max
  * off-screen texture first and stretched to the screen, which saves a lot of GPU time.
  * All methods must be called on the GL thread with a current context.
  */
-class ShaderRenderer(private val header: String) {
+class ShaderRenderer(private val header: String, private val footer: String) {
     var scaleMultiplier = 1f
 
     private var def: WallpaperDef? = null
     private var dirty = true
+    private var paramsDirty = false
+    private var uAdjust = -1
+    private val noTouch = FloatArray(3)
+    private val noTaps = FloatArray(16) { if (it % 4 == 2) 99f else 0f }
     private var program = 0
     private var blitProgram = 0
     private var fbo = 0
@@ -39,14 +43,16 @@ class ShaderRenderer(private val header: String) {
         .apply { put(floatArrayOf(-1f, -1f, 1f, -1f, -1f, 1f, 1f, 1f)); position(0) }
 
     fun setDefinition(d: WallpaperDef?) {
+        // Same shader with different colours or parameters: no need to compile again.
+        if (d?.shader != def?.shader || program == 0) dirty = true else paramsDirty = true
         def = d
-        dirty = true
     }
 
 
     fun draw(width: Int, height: Int, time: Float, touch: FloatArray, taps: FloatArray, offset: Float) {
-        if (dirty) rebuild()
+        if (dirty) rebuild() else if (paramsDirty) readParams()
         val d = def
+        val touchOn = d?.touch != false
         val scale = ((d?.renderScale ?: 1f) * scaleMultiplier).coerceIn(0.2f, 1f)
         val useFbo = scale < 0.999f
         val rw = if (useFbo) max(1, (width * scale).toInt()) else width
@@ -62,8 +68,9 @@ class ShaderRenderer(private val header: String) {
         GLES20.glUseProgram(program)
         GLES20.glUniform2f(uResolution, rw.toFloat(), rh.toFloat())
         GLES20.glUniform1f(uTime, time)
-        GLES20.glUniform3fv(uTouch, 1, touch, 0)
-        GLES20.glUniform4fv(uTaps, 4, taps, 0)
+        GLES20.glUniform3fv(uTouch, 1, if (touchOn) touch else noTouch, 0)
+        GLES20.glUniform4fv(uTaps, 4, if (touchOn) taps else noTaps, 0)
+        if (d != null) GLES20.glUniform4fv(uAdjust, 1, d.adjust, 0) else GLES20.glUniform4f(uAdjust, 1f, 1f, 1f, 0f)
         GLES20.glUniform1f(uOffset, offset)
         if (d != null) {
             for (i in 0 until 4) GLES20.glUniform3fv(uColors[i], 1, d.colors, i * 3)
@@ -95,18 +102,24 @@ class ShaderRenderer(private val header: String) {
         if (program != 0) GLES20.glDeleteProgram(program)
         if (blitProgram == 0) blitProgram = link(BLIT)
         val d = def
-        program = if (d != null) link(header + "\n" + d.shader) else 0
+        program = if (d != null) link(header + "\n" + d.shader + footer) else 0
         if (program == 0) {
             if (d != null) Log.e(TAG, "Shader for ${d.id} failed to compile, showing fallback")
-            program = link(header + "\n" + FALLBACK)
+            program = link(header + "\n" + FALLBACK + footer)
         }
         uResolution = GLES20.glGetUniformLocation(program, "u_resolution")
         uTime = GLES20.glGetUniformLocation(program, "u_time")
         uTouch = GLES20.glGetUniformLocation(program, "u_touch")
         uTaps = GLES20.glGetUniformLocation(program, "u_taps")
         uOffset = GLES20.glGetUniformLocation(program, "u_offset")
+        uAdjust = GLES20.glGetUniformLocation(program, "u_adjust")
         for (i in 0 until 4) uColors[i] = GLES20.glGetUniformLocation(program, "u_color${i + 1}")
-        val params = d?.params?.entries?.toList().orEmpty()
+        readParams()
+    }
+
+    private fun readParams() {
+        paramsDirty = false
+        val params = def?.params?.entries?.toList().orEmpty()
         paramLocs = IntArray(params.size) { GLES20.glGetUniformLocation(program, "u_" + params[it].key) }
         paramValues = FloatArray(params.size) { params[it].value }
     }

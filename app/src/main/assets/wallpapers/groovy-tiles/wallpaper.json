@@ -1,0 +1,29 @@
+{
+  "id": "groovy-tiles",
+  "name": "Groovy Tiles",
+  "category": "Retro",
+  "description": "70s-style interlocking arcs gliding by.",
+  "version": 2,
+  "format": 1,
+  "shader": "shader.frag",
+  "thumbnail": "thumbnail.webp",
+  "interactive": true,
+  "colors": [
+    "#1f4e5f",
+    "#c8553d",
+    "#f28f3b",
+    "#ffd5a5"
+  ],
+  "speed": 1.0,
+  "renderScale": 1.0,
+  "parameters": {
+    "scale": 5
+  },
+  "controls": {
+    "scale": {
+      "label": "Tile count",
+      "min": 2,
+      "max": 12
+    }
+  }
+}
